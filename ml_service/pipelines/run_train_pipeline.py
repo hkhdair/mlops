@@ -38,10 +38,10 @@ def main():
             if p.version == e.build_id:
                 matched_pipes.append(p)
 
-    if(len(matched_pipes) > 1):
+    if (len(matched_pipes) > 1):
         published_pipeline = None
         raise Exception(f"Multiple active pipelines are published for build {e.build_id}.")  # NOQA: E501
-    elif(len(matched_pipes) == 0):
+    elif not matched_pipes:
         published_pipeline = None
         raise KeyError(f"Unable to find a published pipeline for this build {e.build_id}")  # NOQA: E501
     else:
