@@ -12,7 +12,7 @@ def get_compute(workspace: Workspace, compute_name: str, vm_size: str, for_batch
         if compute_name in workspace.compute_targets:
             compute_target = workspace.compute_targets[compute_name]
             if compute_target and type(compute_target) is AmlCompute:
-                print("Found existing compute target " + compute_name + " so using it.") # NOQA
+                print(f"Found existing compute target {compute_name} so using it.")
         else:
             e = Env()
             compute_config = AmlCompute.provisioning_configuration(
